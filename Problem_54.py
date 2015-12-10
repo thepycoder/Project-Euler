@@ -18,6 +18,7 @@ def gethand(handstring):
 
 
 def royalflush(playerhand):
+    global s
     rf = [10, 11, 12, 13, 14]
     f = 0
     for r in rf:
@@ -123,7 +124,7 @@ def twopairs(playerhand):
     if pairs.__len__() == 2 and pairs[0] != pairs[1] and not s:  # otherwise three of a kind will trigger this too
         print "two pairs"
         s = True
-        return 200000000000000 + 100000000000*doubles[0] + 100000000000*doubles[1] + score(playerhand[0:5])
+        return 20000000000000 + 100000000000*doubles[0] + 100000000000*doubles[1] + score(playerhand[0:5])
     else:
         return 0
 
@@ -191,7 +192,7 @@ def determinewinner(playerhand):
 
 
 totalscore = 0
-f = open("test.txt", "r")
+f = open("poker.txt", "r")
 for line in f:
     if determinewinner(line.rstrip()):
         totalscore += 1
